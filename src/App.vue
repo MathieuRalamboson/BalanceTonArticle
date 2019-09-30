@@ -23,11 +23,13 @@
 
 <script>
 import ToDo from './components/ToDo'
+import View from './components/View'
 
 export default {
   name: 'App',
   components: {
-    ToDo
+    ToDo,
+    View
   },
   data: () => ({
     //

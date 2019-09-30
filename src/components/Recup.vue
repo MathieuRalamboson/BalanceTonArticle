@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid="true ">
+  <v-container>
     <v-layout text-center wrap>
       <v-form v-model="valid">
         <v-container>
@@ -24,26 +24,6 @@
 
 <script>
 export default {
-  data: () => ({
-    valid: false,
-    isActive: true,
-    identifiant: '',
-    mdp: ''
-  }),
-  methods: {
-    affichage() {
-      // rend isActive ou pas un objet
-      this.isActive = !this.isActive;
-      console.log('Objet isActive');
-    },
-    checkLogin() {
-      // Si bon log , acces a la suite
-      console.log("Tentative de connection.");
-      if (this.identifiant === "user" && this.mdp === "user") {
-        this.isActive = !this.isActive;
-        console.log('Check login ok !');
-      }
-    }
-  }
-};
+    
+}
 </script>
