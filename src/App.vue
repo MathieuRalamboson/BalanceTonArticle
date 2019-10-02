@@ -35,7 +35,7 @@ export default {
       },
       {
         name: 'Log Admin',
-        to: '/api/admin'
+        to: '/page-2'
       }
     ]
   })

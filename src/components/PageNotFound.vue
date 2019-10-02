@@ -1,5 +1,5 @@
 <template>
-   
+    <img src="./linux.png">
 </template>
 
 <script>

@@ -23,7 +23,7 @@ export default new Router({
       component: View
     },
     {
-      path: '/api/admin',
+      path: '/page-2',
       name: 'Admin',
       component: PageNotFound
     }

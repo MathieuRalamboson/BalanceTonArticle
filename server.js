@@ -57,10 +57,10 @@ const users = [{
 }]
 
 app.post('/api/login', (req, res) => {
+  console.log('-------- Query ---------')
   console.log('req.query', req.query)
   console.log('req.body', req.body)
   console.log('req.body.username', req.body.username)
-  const userId = '123'
   console.log('req.session.userId', req.session.userId)
 
   if (!req.session.userId) { // Recherche utilisateur
@@ -69,6 +69,7 @@ app.post('/api/login', (req, res) => {
         user.password === req.body.password
     )
     console.log('Recherche Utilisateur')
+    console.log('Num userId', req.session.userId)
     if (!user) { // Utilisateur non trouver
       res.status(401)
       res.json({
@@ -82,6 +83,7 @@ app.post('/api/login', (req, res) => {
         message: 'connected with id =' + this.userId
       })
       console.log('Connection Reussi')
+      console.log(`Status: ${res.status}`)
     }
   } else {
     res.status(401)
