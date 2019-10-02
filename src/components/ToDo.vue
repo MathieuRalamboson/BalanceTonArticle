@@ -1,18 +1,19 @@
 <template>
-  <v-container fluid="true ">
+  <v-container>
     <v-layout text-center wrap>
       <v-form v-model="valid">
         <v-container>
           <v-row>
             <v-col cols="12" md="4">
-              <v-text-field v-model="identifiant" label="Identifiant" required v-show="isActive"></v-text-field>
+              <v-text-field v-model="username" label="Username" required v-show="isActive"></v-text-field>
             </v-col>
             <v-col cols="12" md="4">
-              <v-text-field v-model="mdp" label="Mdp" required v-show="isActive"></v-text-field>
+              <v-text-field v-model="password" label="Password" required v-show="isActive"></v-text-field>
             </v-col>
 
             <v-col cols="12" md="4">
               <v-btn v-on:click="checkLogin">Login</v-btn>
+              <v-btn v-on:click="goToView">GotoView</v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -23,12 +24,15 @@
 </template>
 
 <script>
+import Router from 'vue-router'
+
 export default {
   data: () => ({
     valid: false,
     isActive: true,
-    identifiant: '',
-    mdp: ''
+    username: '',
+    password: '',
+    url: 'http://localhost:4000'
   }),
   methods: {
     affichage() {
@@ -36,14 +40,21 @@ export default {
       this.isActive = !this.isActive;
       console.log('Objet isActive');
     },
-    checkLogin() {
+    goToView() {
+      console.log('GotoView');
+      this.$router.push('/page-1')
+    },
+    async checkLogin() {
       // Si bon log , acces a la suite
       console.log("Tentative de connection.");
-      if (this.identifiant === "user" && this.mdp === "user") {
-        this.isActive = !this.isActive;
-        console.log('Check login ok !');
-      }
+      const response = await this.axios.post(this.url + '/api/login', {
+        username: this.username,
+        password: this.password
+      })
+      console.log('response is:' , response)
+    },
+     logout () {
     }
   }
-};
+}
 </script>

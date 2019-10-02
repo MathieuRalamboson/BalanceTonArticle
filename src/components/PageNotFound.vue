@@ -1,5 +1,5 @@
 <template>
-    <img src="./liverpool.png">
+   
 </template>
 
 <script>

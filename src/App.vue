@@ -1,23 +1,17 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <ToDo/>
-    </v-content>
+ <!-- Router Link en haut a gauche-->
+  <div>
+    <ul>
+      <li v-for="(link, index) in links" :key="index">
+        <router-link :to="link.to">{{ link.name }}</router-link>
+      </li>
+    </ul>
+    <main>
+      <router-view/>
+    </main>
+  </div>
+<!-- Router Link en haut a gauche-->
   </v-app>
 </template>
 
@@ -28,11 +22,22 @@ import View from './components/View'
 export default {
   name: 'App',
   components: {
-    ToDo,
-    View
   },
   data: () => ({
-    //
+    links: [
+      {
+        name: 'Se connecter',
+        to: '/'
+      },
+      {
+        name: 'Page Acceuil',
+        to: '/page-1'
+      },
+      {
+        name: 'Log Admin',
+        to: '/api/admin'
+      }
+    ]
   })
 }
 </script>
