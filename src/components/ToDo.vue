@@ -13,6 +13,7 @@
 
             <v-col cols="12" md="4">
               <v-btn v-on:click="checkLogin">Login</v-btn>
+              <v-btn v-on:click="logout">Log out</v-btn>
               <v-btn v-on:click="goToView">GotoView</v-btn>
             </v-col>
           </v-row>
@@ -34,6 +35,7 @@ export default {
     isActive: true,
     username: "",
     password: "",
+    userId: "",
     url: "http://localhost:4000"
   }),
   methods: {
@@ -47,26 +49,38 @@ export default {
       this.$router.push("/page-1");
     },
     async checkLogin() {
-      // Si bon log , acces a la suite
       console.log("Tentative de connection.");
-      this.axios
-        .post(this.url + "/api/login", {
-          username: this.username,
-          password: this.password
-        })
-        .then(rep => {
-          // Connection etablie
-          console.log("Logger !");
-          console.log("La réponse : " , rep)
-        })
-        .catch(err => {
-          // Erreur
-          console.log("Erreur !");
-          console.log(err);
-          console.log("La réponse : " , rep)
-        });
+      // Requete pour connection
+      const response = await this.axios.post(this.url + '/api/login', {
+        username: this.username,
+        password: this.password,
+      })
+      console.log('response is:', response)
+      // this.axios
+      //   .post(this.url + "/api/login", {
+      //     username: this.username,
+      //     password: this.password,
+      //     userId: 1000
+      //   })
+      //   .then(rep => {
+      //     // Connection etablie
+      //     console.log("Login réussi !");
+      //     console.log("La réponse : " , rep)
+      //   })
+      //   .catch(err => {
+      //     // Erreur
+      //     console.log("Login échoué !");
+      //     console.log(err);
+      //     //console.log("La réponse : " , rep)
+      //   });
     },
-    logout() {}
+    async logout() {
+      console.log("Tentative de déconnection.");
+      const response = await this.axios.get(this.url + '/api/logout', {
+        username: this.username,
+        password: this.password,
+      })
+    }
   }
 };
 </script>

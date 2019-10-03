@@ -16,6 +16,7 @@ const session = require('express-session')
 
 const app = express()
 
+
 app.use(cors({
   credentials: true,
   origin: 'http://localhost:8080'
@@ -24,7 +25,7 @@ app.use(session({
   secret: 'blablabla', // changez cette valeur
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true } // ne changez que si vous avez activé le https
+  cookie: { secure: false } // ne changez que si vous avez activé le https
 }))
 app.use(morgan('dev'))
 app.use(bodyParser.json())
@@ -52,7 +53,7 @@ const users = [{
   active: false
 }, {
   username: 'admin',
-  password: 'changethispassword',
+  password: 'admin',
   active: false
 }]
 
@@ -60,16 +61,13 @@ app.post('/api/login', (req, res) => {
   console.log('-------- Query ---------')
   console.log('req.query', req.query)
   console.log('req.body', req.body)
-  console.log('req.body.username', req.body.username)
-  console.log('req.session.userId', req.session.userId)
-
+  
   if (!req.session.userId) { // Recherche utilisateur
-    const user = users.find(user =>
-      user.username === req.body.username &&
-        user.password === req.body.password
+    const user = users.find(u =>
+      u.username === req.body.username &&
+        u.password === req.body.password
     )
     console.log('Recherche Utilisateur')
-    console.log('Num userId', req.session.userId)
     if (!user) { // Utilisateur non trouver
       res.status(401)
       res.json({
@@ -78,12 +76,11 @@ app.post('/api/login', (req, res) => {
       console.log('Utilisateur Non trouvé')
     } else {
       // connect the user
-      req.session.userId = user.id // connect the user, and change the id
+      req.session.userId = 1000 // connect the user, and change the id
       res.json({
-        message: 'connected with id =' + this.userId
+        message: 'connected with id =' + req.session.userId
       })
-      console.log('Connection Reussi')
-      console.log(`Status: ${res.status}`)
+      console.log(' Utilisateur trouvé ! ')
     }
   } else {
     res.status(401)
@@ -92,6 +89,25 @@ app.post('/api/login', (req, res) => {
     })
     console.log('Vous etes deja connecter')
   }
+  console.log('-------- Fin Processus ---------')
+})
+
+app.get('/api/logout', (req, res) => {
+  console.log('-------- Query ---------')
+  if (!req.session.userId) {
+    res.status(401)
+    res.json({
+      message: 'you are already disconnected'
+    })
+    console.log('Vous etes deja déconnecter')
+  } else {
+    req.session.userId = 0
+    res.json({
+      message: 'you are now disconnected'
+    })
+    console.log('Vous venez de vous déconnecter')
+  }
+  console.log('-------- Fin Processus ---------')
 })
 
 app.get('/api/admin', (req, res) => {
