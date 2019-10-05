@@ -30,7 +30,7 @@ export default {
         to: '/'
       },
       {
-        name: 'Page Acceuil',
+        name: 'Page View',
         to: '/page-1'
       },
       {

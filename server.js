@@ -15,8 +15,6 @@ const cors = require('cors')
 const session = require('express-session')
 
 const app = express()
-
-
 app.use(cors({
   credentials: true,
   origin: 'http://localhost:8080'
@@ -61,7 +59,6 @@ app.post('/api/login', (req, res) => {
   console.log('-------- Query ---------')
   console.log('req.query', req.query)
   console.log('req.body', req.body)
-  
   if (!req.session.userId) { // Recherche utilisateur
     const user = users.find(u =>
       u.username === req.body.username &&
