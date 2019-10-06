@@ -62,7 +62,10 @@ export default {
       const response = await this.axios.get("http://localhost:4000" + "/api/logout");
       if (response) {
         //Si il y a déconnection , go Login
+        console.log("Vous venez de vous déconnecter")
         this.$router.push("/");
+      }else{
+        console.log("Vous etes deja déconnecter")
       }
     }
   }
