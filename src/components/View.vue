@@ -10,7 +10,7 @@
 
       <v-container class="my-5">
         <v-card flat class="pa-3" v-for="(todo, idx) in todoList" v-bind:key="idx">
-          <v-layout row wrap class="pa-3">
+          <v-layout row wrap :class="`pa-3 project ${todo.status}`">
             <v-flex xs12 md2>
               <div class="caption grey--text">Article</div>
               <div>{{ todo.titre }}</div>
@@ -82,7 +82,7 @@ export default {
         description: "héro",
         due: "Mathieu.R",
         date: "1st Jan 2019",
-        status: "news"
+        status: "sante"
       }
     ]
   }),
@@ -102,3 +102,15 @@ export default {
   }
 };
 </script>
+
+<style>
+.project.news{
+  border-left: 4px solid #3CD1C2;
+}
+.project.sante{
+  border-left: 4px solid orange
+}
+.project.doc{
+  border-left: 4px solid tomato;
+}
+</style>
