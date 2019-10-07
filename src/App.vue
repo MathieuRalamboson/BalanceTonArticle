@@ -1,27 +1,25 @@
 <template>
-  <v-app>
- <!-- Router Link en haut a gauche-->
+  <v-app class="grey lighten-4">
+    <Navbar />
+ <!-- Router View -->
   <div>
-    <ul>
-      <li v-for="(link, index) in links" :key="index">
-        <router-link :to="link.to">{{ link.name }}</router-link>
-      </li>
-    </ul>
     <main>
       <router-view/>
     </main>
   </div>
-<!-- Router Link en haut a gauche-->
+<!-- Router View -->
   </v-app>
 </template>
 
 <script>
+import Navbar from './components/Navbar'
 import ToDo from './components/ToDo'
 import View from './components/View'
 
 export default {
   name: 'App',
   components: {
+    Navbar
   },
   data: () => ({
     links: [

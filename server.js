@@ -92,11 +92,11 @@ app.post('/api/login', (req, res) => {
 app.get('/api/logout', (req, res) => {
   console.log('-------- Query ---------')
   if (!req.session.userId) {
+    console.log('Vous etes deja déconnecter')
     res.status(401)
     res.json({
       message: 'you are already disconnected'
     })
-    console.log('Vous etes deja déconnecter')
   } else {
     req.session.userId = 0
     res.json({
