@@ -1,10 +1,11 @@
 <template>
   <v-container class="grey lighten-5">
     <v-layout>
-      <v-btn v-on:click="addTodo">Add</v-btn>
+      <v-btn v-on:click="refresh">Refresh</v-btn>
+       <Popup />
     </v-layout>
 
-    <!-- Articles -->
+    <!-- Articles génére une list de la data -->
     <div class="dashboard">
       <h1 class="subheading grey--text">Les Articles</h1>
 
@@ -33,33 +34,20 @@
               <div class="caption grey--text">Status</div>
               <div>{{ todo.status }}</div>
             </v-flex>
+
+            <v-flex xs2 sm4 md2>
+              <v-btn 
+              class="ma-2" outlined color="indigo"
+              v-on:click="deleteTodo(idx)">
+               <v-icon>mdi-delete</v-icon>
+              </v-btn>
+            </v-flex>
           </v-layout>
         </v-card>
       </v-container>
     </div>
     <!-- Articles -->
 
-    <!-- Recuperation Input -->
-    <v-row no-gutters>
-      <v-col cols="9">
-        <v-text-field v-model="titre" label="Title" required></v-text-field>
-      </v-col>
-      <v-col cols="4">
-        <v-text-field v-model="description" label="Description" required></v-text-field>
-      </v-col>
-      <v-col cols="12" sm="4">
-      <v-overflow-btn
-          class="my-2"
-          :items="dropdown_icon"
-          label="Choix du status"
-          segmented
-          target="#dropdown-example"
-          v-model="status"
-          required
-        ></v-overflow-btn>
-      </v-col>
-    </v-row>
-    <!-- Recuperation Input -->
   </v-container>
 </template>
 
@@ -67,51 +55,44 @@
 import Router from "vue-router";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import Popup from './Popup'
+
 export default {
+  components: {Popup},
   data: () => ({
     valid: false,
     seen: true,
     url: "http://localhost:4000",
-
     titre: "",
     description: "",
     status: "",
-    todoList: [
-      {
-        titre: "superman",
-        description: "héro",
-        due: "Mathieu.R",
-        date: "2nd Jan 2019",
-        status: "news"
-      },
-      {
-        titre: "batman",
-        description: "héro",
-        due: "Mathieu.R",
-        date: "1st Jan 2019",
-        status: "sante"
-      }
-    ],
-    dropdown_icon: [
-      { text: 'news', callback: () => console.log('news') },
-      { text: 'sante', callback: () => console.log('sante') },
-      { text: 'doc', callback: () => console.log('doc') },
-    ],
+
+    todoList: []
   }),
   methods: {
-    addTodo() {
-      // TODO
-      this.todoList.push({
-        titre: this.titre,
-        description: this.description,
-        status: this.status
-      });
-      console.log("Ajout un post");
-      console.log("Titre :", this.titre);
-      console.log("Description :", this.description);
-      console.log("Status :", this.status);
+    refresh() {
+      console.log("Recuperation Database");
+      axios.get(this.url + '/api/data')
+        .then(response => {
+      // JSON responses are automatically parsed.
+      this.todoList = response.data
+      // this.todoList = [...this.todoList , response.data]
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+    },
 
-      (this.titre = ""), (this.description = ""),(this.status="")
+    deleteTodo(idx) {
+    console.log("Suppression un post");
+    console.log("Idx recu : ", idx);
+    axios.delete(this.url + '/api/data', {params: {idx: idx}} )
+    .then(response => {
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+    this.refresh()
     }
   }
 };

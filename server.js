@@ -36,12 +36,31 @@ app.get('/', (req, res) => {
 })
 
 // ----------------Coter API -----------------
-app.get('/api/todo', (req, res) => {
-  console.log('coucou')
-  res.json([{
-    title: 'faire ses devoirs',
-    content: 'travailler le projet de web'
-  }])
+app.get('/api/data', (req, res) => {
+  console.log('-------- Query ---------')
+  console.log('Recuperation Database')
+  console.log('Reponse: ', data)
+  res.json(data)
+})
+
+app.post('/api/data', (req, res) => {
+  console.log('-------- Query ---------')
+  console.log('-------- Ajout POST ---------')
+  console.log('req.body', req.body)
+  console.log('Data1', data)
+  // Remplie data avec les nouvelle valeurs
+  data = [...data, req.body]
+  console.log('Data2', data)
+})
+
+app.delete('/api/data', (req, res) => {
+  console.log('-------- Query ---------')
+  console.log('-------- Suppression POST ---------')
+  console.log('req.query', req.query)
+  console.log('req.query.idx', req.query.idx)
+  console.log('Data1', data)
+  data.splice(req.query.idx, 1)
+  console.log('Data2', data)
 })
 
 // ---------- Gestion User --------------
@@ -54,6 +73,36 @@ const users = [{
   password: 'admin',
   active: false
 }]
+// ---------- Base de donnée --------------
+var data = [{
+  titre: 'superman',
+  description: 'héro',
+  due: 'Mathieu.R',
+  date: '2nd Jan 2019',
+  status: 'news'
+},
+{
+  titre: 'batman',
+  description: 'héro',
+  due: 'Mathieu.R',
+  date: '2nd Jan 2019',
+  status: 'sante'
+},
+{
+  titre: 'wonderwoman',
+  description: 'héro',
+  due: 'Mathieu.R',
+  date: '2nd Jan 2019',
+  status: 'doc'
+},
+{
+  titre: 'cochon',
+  description: 'héro',
+  due: 'Mathieu.R',
+  date: '2nd Jan 2019',
+  status: 'news'
+}
+]
 
 app.post('/api/login', (req, res) => {
   console.log('-------- Query ---------')
