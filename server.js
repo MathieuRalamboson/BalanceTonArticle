@@ -36,6 +36,7 @@ app.get('/', (req, res) => {
 })
 
 // ----------------Coter API -----------------
+<<<<<<< HEAD
 app.get('/api/data', (req, res) => {
   console.log('-------- Query ---------')
   console.log('Recuperation Database')
@@ -61,6 +62,14 @@ app.delete('/api/data', (req, res) => {
   console.log('Data1', data)
   data.splice(req.query.idx, 1)
   console.log('Data2', data)
+=======
+app.get('/api/todo', (req, res) => {
+  console.log('coucou')
+  res.json([{
+    title: 'faire ses devoirs',
+    content: 'travailler le projet de web'
+  }])
+>>>>>>> dc214730059e6762e15f40c90c1a965255a9c663
 })
 
 // ---------- Gestion User --------------
@@ -73,6 +82,7 @@ const users = [{
   password: 'admin',
   active: false
 }]
+<<<<<<< HEAD
 // ---------- Base de donnée --------------
 var data = [{
   titre: 'superman',
@@ -103,6 +113,8 @@ var data = [{
   status: 'news'
 }
 ]
+=======
+>>>>>>> dc214730059e6762e15f40c90c1a965255a9c663
 
 app.post('/api/login', (req, res) => {
   console.log('-------- Query ---------')
