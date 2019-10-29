@@ -1,8 +1,10 @@
 <template>
   <v-container class="grey lighten-5">
+    <input v-on:change="refresh">
     <v-layout>
       <v-btn v-on:click="refresh">Refresh</v-btn>
-       <Popup />
+       <Popup >
+        </Popup>
     </v-layout>
 
     <!-- Articles génére une list de la data -->
@@ -41,6 +43,12 @@
               v-on:click="deleteTodo(idx)">
                <v-icon>mdi-delete</v-icon>
               </v-btn>
+
+              <v-btn 
+              class="ma-2" outlined color="indigo"
+              v-on:click="deleteTodo(idx)">
+               <v-icon>mdi-settings</v-icon>
+              </v-btn>
             </v-flex>
           </v-layout>
         </v-card>
@@ -69,6 +77,12 @@ export default {
 
     todoList: []
   }),
+  created () {
+        this.refresh();
+    },
+  updated () {
+        this.refresh();
+    },
   methods: {
     refresh() {
       console.log("Recuperation Database");
@@ -82,7 +96,6 @@ export default {
       this.errors.push(e)
     })
     },
-
     deleteTodo(idx) {
     console.log("Suppression un post");
     console.log("Idx recu : ", idx);
@@ -92,7 +105,6 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
-    this.refresh()
     }
   }
 };
@@ -107,5 +119,11 @@ export default {
 }
 .project.doc {
   border-left: 4px solid tomato;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
