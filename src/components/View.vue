@@ -37,19 +37,25 @@
               <div>{{ todo.status }}</div>
             </v-flex>
 
+            <!-- Boutton sur les cotées -->
             <v-flex xs2 sm4 md2>
+  
+              <Detail >
+              </Detail>
+
               <v-btn 
-              class="ma-2" outlined color="indigo"
+              class="ma-1" outlined color="indigo"
               v-on:click="deleteTodo(idx)">
                <v-icon>mdi-delete</v-icon>
               </v-btn>
 
               <v-btn 
-              class="ma-2" outlined color="indigo"
+              class="ma-1" outlined color="indigo"
               v-on:click="deleteTodo(idx)">
                <v-icon>mdi-settings</v-icon>
               </v-btn>
             </v-flex>
+            <!-- Boutton sur les cotées -->
           </v-layout>
         </v-card>
       </v-container>
@@ -64,9 +70,10 @@ import Router from "vue-router";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import Popup from './Popup'
+import Detail from './Detail'
 
 export default {
-  components: {Popup},
+  components: {Popup,Detail},
   data: () => ({
     valid: false,
     seen: true,
