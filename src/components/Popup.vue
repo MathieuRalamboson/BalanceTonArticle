@@ -30,7 +30,8 @@
         <v-col>
           <v-btn 
           class="sucess mx-0 mt-3"
-          v-on:click="addTodo" v-on="false">Add</v-btn>
+          v-on:click="addTodo"
+          v-on="false">Add</v-btn>
         </v-col>
       </v-row>
       <!-- Recuperation Input -->
@@ -71,7 +72,7 @@ export default {
       status: this.status
     })
     .then(response => {})
-      this.init_dialog,
+      this.init_dialog(),
       this.dialog = false
     },
     init_dialog() { // Remise a 0

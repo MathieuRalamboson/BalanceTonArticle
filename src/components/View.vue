@@ -1,8 +1,10 @@
 <template>
   <v-container class="grey lighten-5">
+    <input v-on:change="refresh">
     <v-layout>
       <v-btn v-on:click="refresh">Refresh</v-btn>
-       <Popup />
+       <Popup >
+        </Popup>
     </v-layout>
 
     <!-- Articles génére une list de la data -->
@@ -35,13 +37,25 @@
               <div>{{ todo.status }}</div>
             </v-flex>
 
+            <!-- Boutton sur les cotées -->
             <v-flex xs2 sm4 md2>
+  
+              <Detail :idx="idx" >
+              </Detail>
+
               <v-btn 
-              class="ma-2" outlined color="indigo"
+              class="ma-1" outlined color="indigo"
               v-on:click="deleteTodo(idx)">
                <v-icon>mdi-delete</v-icon>
               </v-btn>
+
+              <v-btn 
+              class="ma-1" outlined color="indigo"
+              v-on:click="deleteTodo(idx)">
+               <v-icon>mdi-settings</v-icon>
+              </v-btn>
             </v-flex>
+            <!-- Boutton sur les cotées -->
           </v-layout>
         </v-card>
       </v-container>
@@ -56,9 +70,10 @@ import Router from "vue-router";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import Popup from './Popup'
+import Detail from './Detail'
 
 export default {
-  components: {Popup},
+  components: {Popup,Detail},
   data: () => ({
     valid: false,
     seen: true,
@@ -69,9 +84,15 @@ export default {
 
     todoList: []
   }),
+  created () {
+        this.refresh();
+    },
+  updated () {
+        this.refresh();
+    },
   methods: {
     refresh() {
-      console.log("Recuperation Database");
+      //console.log("Recuperation Database");
       axios.get(this.url + '/api/data')
         .then(response => {
       // JSON responses are automatically parsed.
@@ -82,7 +103,6 @@ export default {
       this.errors.push(e)
     })
     },
-
     deleteTodo(idx) {
     console.log("Suppression un post");
     console.log("Idx recu : ", idx);
@@ -92,7 +112,6 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
-    this.refresh()
     }
   }
 };
@@ -107,5 +126,11 @@ export default {
 }
 .project.doc {
   border-left: 4px solid tomato;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

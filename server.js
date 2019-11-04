@@ -37,10 +37,19 @@ app.get('/', (req, res) => {
 
 // ----------------Coter API -----------------
 app.get('/api/data', (req, res) => {
-  console.log('-------- Query ---------')
-  console.log('Recuperation Database')
-  console.log('Reponse: ', data)
+  // console.log('-------- Query ---------')
+  // console.log('Recuperation Database')
+  // console.log('Reponse: ', data)
   res.json(data)
+})
+
+app.get('/api/data/detail', (req, res) => {
+  console.log('-------- Query ---------')
+  console.log('Recuperation un article')
+  console.log('req.query', req.query)
+  console.log('req.query.idx', req.query.idx)
+  console.log('Reponse: ', data[req.query.idx])
+  res.json(data[req.query.idx])
 })
 
 app.post('/api/data', (req, res) => {
