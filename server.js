@@ -62,6 +62,19 @@ app.post('/api/data', (req, res) => {
   console.log('Data2', data)
 })
 
+app.put('/api/data/detail', (req, res) => {
+  console.log('-------- Query ---------')
+  console.log('-------- Modif article ---------')
+  console.log('req.body', req.body)
+  console.log('req.query', req.query)
+  console.log('req.body.idx', req.body.idx)
+  console.log('Data1', data)
+  // Remplie data avec les nouvelle valeurs
+  // data = [...data, req.body]
+  data[req.body.idx] = req.body
+  console.log('Data2', data)
+})
+
 app.delete('/api/data', (req, res) => {
   console.log('-------- Query ---------')
   console.log('-------- Suppression POST ---------')

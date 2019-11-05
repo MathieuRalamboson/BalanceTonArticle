@@ -4,7 +4,7 @@
            <v-btn
                 text v-on="on" 
                 class="ma-1" outlined color="indigo"
-                v-on:click="viewArticle(idx)"
+                v-on:click="updateArticle(idx)"
                 >
                <v-icon>mdi-settings</v-icon>
               </v-btn>
@@ -40,7 +40,7 @@
         <v-col>
           <v-btn 
           class="sucess mx-0 mt-3"
-          v-on:click="addTodo"
+          v-on:click="modifArticle(idx)"
           v-on="false">Update</v-btn>
         </v-col>
       </v-row>
@@ -64,7 +64,7 @@ export default {
     seen: true,
     url: "http://localhost:4000",
     dialog: false,
-    
+
     dropdown_icon: [
       { text: "news", callback: () => console.log("news") },
       { text: "sante", callback: () => console.log("sante") },
@@ -75,10 +75,11 @@ export default {
     description: "",
     status: "",
     todoList: []
+    
 
    }),
    methods: {
-    viewArticle(idx) {
+    updateArticle(idx) {
     console.log("Voir un article");
     console.log("Idx recu : ", idx);
     axios.get(this.url + '/api/data/detail', {params: {idx: idx}} )
@@ -88,7 +89,19 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
-    }
+    },
+
+  modifArticle(idx) {
+    console.log("Modif un article");
+    console.log("Idx recu : ", idx);
+    axios.put(this.url + '/api/data/detail', 
+      {
+      idx: idx,
+      titre: this.todoList.titre,
+      description: this.todoList.description,
+      status: this.todoList.status
+      })
+  }
 
    }
 };
