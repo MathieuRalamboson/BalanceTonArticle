@@ -14,11 +14,6 @@
         <v-card-title>
             <h2>Update de l'article</h2>
         </v-card-title>
-        <h1> Idx : {{idx}} </h1>
-        <h1> Titre : {{todoList.titre}} </h1>
-        <h1> Description : {{todoList.description}} </h1>
-        <h1> Status : {{todoList.status}} </h1>
-
         <!-- Recuperation Input -->
       <v-row no-gutters>
         <v-col cols="9">
@@ -94,6 +89,7 @@ export default {
   modifArticle(idx) {
     console.log("Modif un article");
     console.log("Idx recu : ", idx);
+    this.dialog = false
     axios.put(this.url + '/api/data/detail', 
       {
       idx: idx,
