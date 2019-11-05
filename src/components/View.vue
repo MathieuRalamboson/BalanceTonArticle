@@ -43,17 +43,16 @@
               <Detail :idx="idx" >
               </Detail>
 
+              <Update :idx='idx' >
+              </Update>       
+
+              <!-- Supprimer article-->
               <v-btn 
               class="ma-1" outlined color="indigo"
               v-on:click="deleteTodo(idx)">
                <v-icon>mdi-delete</v-icon>
               </v-btn>
 
-              <v-btn 
-              class="ma-1" outlined color="indigo"
-              v-on:click="deleteTodo(idx)">
-               <v-icon>mdi-settings</v-icon>
-              </v-btn>
             </v-flex>
             <!-- Boutton sur les cotées -->
           </v-layout>
@@ -71,9 +70,10 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import Popup from './Popup'
 import Detail from './Detail'
+import Update from './Update'
 
 export default {
-  components: {Popup,Detail},
+  components: {Popup,Detail,Update},
   data: () => ({
     valid: false,
     seen: true,
