@@ -46,8 +46,15 @@
               <Update :idx='idx' >
               </Update>       
 
+              <v-btn 
+              class="ma-1" outlined color="indigo"
+              v-on:click="debug()">
+               <v-icon>mdi-delete</v-icon>
+              </v-btn>
+
               <!-- Supprimer article-->
               <v-btn 
+              v-if = true 
               class="ma-1" outlined color="indigo"
               v-on:click="deleteTodo(idx)">
                <v-icon>mdi-delete</v-icon>
@@ -74,6 +81,7 @@ import Update from './Update'
 
 export default {
   components: {Popup,Detail,Update},
+  props:['admin'],
   data: () => ({
     valid: false,
     seen: true,
@@ -91,6 +99,9 @@ export default {
         this.refresh();
     },
   methods: {
+    debug() {
+      console.log(this.$route.params.admin)
+    },
     refresh() {
       //console.log("Recuperation Database");
       axios.get(this.url + '/api/data')

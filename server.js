@@ -89,11 +89,11 @@ app.delete('/api/data', (req, res) => {
 const users = [{
   username: 'lol',
   password: 'lol',
-  active: false
+  statusAdmin: false
 }, {
   username: 'admin',
   password: 'admin',
-  active: false
+  statusAdmin: true
 }]
 // ---------- Base de donnée --------------
 var data = [{
@@ -145,9 +145,7 @@ app.post('/api/login', (req, res) => {
     } else {
       // connect the user
       req.session.userId = 1000 // connect the user, and change the id
-      res.json({
-        message: 'connected with id =' + req.session.userId
-      })
+      res.json({ admin: user.statusAdmin })
       console.log(' Utilisateur trouvé ! ')
     }
   } else {

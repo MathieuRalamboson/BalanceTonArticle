@@ -65,11 +65,14 @@ export default {
         username: this.username,
         password: this.password,
       })
-      console.log('response is:', response)
       
       if(response){//Si il y a connection , go View
-        
-        this.$router.push("/page-1");
+        this.$router.push({path:"/page-1" ,
+         params: { admin : response.data.admin },
+         props: { admin : true }
+         });
+        console.log('Admin1 :', response.data.admin)
+        console.log('Admin2 :', this.$route.params.admin)
       }
       
     }

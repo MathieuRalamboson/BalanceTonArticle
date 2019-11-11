@@ -5,6 +5,9 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from './router'
 
+// global variable
+Vue.prototype.$admin = false
+
 Vue.config.productionTip = false
 // cette ligne est importante pour les sessions (en mode développement)
 axios.defaults.withCredentials = true
