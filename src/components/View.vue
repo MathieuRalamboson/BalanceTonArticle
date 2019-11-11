@@ -77,7 +77,8 @@ export default {
   data: () => ({
     valid: false,
     seen: true,
-    url: "http://localhost:4000",
+    //url: "http://localhost:4000",
+    url: "",
     titre: "",
     description: "",
     status: "",

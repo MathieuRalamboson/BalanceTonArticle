@@ -43,7 +43,8 @@ export default {
     username: "",
     password: "",
     userId: "",
-    url: "http://localhost:4000"
+    //url: "http://localhost:4000"
+    url: ""
   }),
   methods: {
     affichage() {// rend isActive ou pas un objet

@@ -46,6 +46,8 @@ import VueAxios from "vue-axios";
 export default {
   components: { ToDo },
   data() {
+    //url: "http://localhost:4000"
+    url: ""
     return {
       drawer: false,
       links: [
@@ -59,7 +61,7 @@ export default {
     async logout() {
       // Deconnection
       console.log("Tentative de déconnection.");
-      const response = await this.axios.get("http://localhost:4000" + "/api/logout");
+      const response = await this.axios.get(this.url + "/api/logout");
       if (response) {
         //Si il y a déconnection , go Login
         console.log("Vous venez de vous déconnecter")

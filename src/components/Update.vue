@@ -66,7 +66,8 @@ export default {
     on: false,
     valid: false,
     seen: true,
-    url: "http://localhost:4000",
+    //url: "http://localhost:4000",
+    url: "",
     dialog: false,
 
     dropdown_icon: [
