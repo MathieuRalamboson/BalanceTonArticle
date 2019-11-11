@@ -5,7 +5,7 @@
       <!-- NavBAR -->
       <v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase grey--text">
-        <span class="font-weight-light">Mathieu.R</span>
+        <span class="font-weight-light">BALANCETONARTICLE</span>
         <span>Vue.js</span>
       </v-toolbar-title>
 

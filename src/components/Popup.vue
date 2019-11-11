@@ -1,21 +1,45 @@
 <template>
-  <v-dialog max-width="600px" v-model="dialog">
+  <v-dialog max-width="700px" v-model="dialog">
     <template template v-slot:activator="{on}">
-      <v-btn text v-on="on" class="success">Ajouter un article</v-btn>
+      <v-btn depresed small color="black"
+       text v-on="on" class="success">Ajouter un article</v-btn>
     </template>
 
+  <form>
     <v-card>
       <v-card-title>
         <h2>Ajouter un article</h2>
       </v-card-title>
       <!-- Recuperation Input -->
-      <v-row no-gutters>
+      <v-row align="center">
+        <v-col cols="9" sm="4">
+          <v-text-field 
+          v-model="titre" 
+          label="Title"
+          outlined
+           ></v-text-field>
+        </v-col>
+
         <v-col cols="9">
-          <v-text-field v-model="titre" label="Title" ></v-text-field>
+          <v-textarea
+          v-model="description" label="Description"
+          auto-grow
+          outlined
+          rows="3"
+          row-height="25"
+          shaped
+        ></v-textarea>
         </v-col>
-        <v-col cols="4">
-          <v-text-field v-model="description" label="Description"></v-text-field>
+        
+
+        <v-col cols="9">
+          <v-text-field 
+          v-model="imgUrl" 
+          label="URL" 
+          outlined
+          ></v-text-field>
         </v-col>
+
         <v-col cols="12" sm="4">
           <v-overflow-btn
             class="my-2"
@@ -29,19 +53,18 @@
         </v-col>
 
         <v-col cols="9">
-          <v-text-field v-model="imgUrl" label="URL" ></v-text-field>
-        </v-col>
-        <img v-bind:src=imgUrl>
-
-        <v-col>
           <v-btn 
-          class="sucess mx-0 mt-3"
+          depresed small color="black" 
+          class="success"
           v-on:click="addTodo"
           v-on="false">Ajouter</v-btn>
         </v-col>
+
+        <img v-bind:src=imgUrl>
       </v-row>
       <!-- Recuperation Input -->
     </v-card>
+    </form>
   </v-dialog>
 </template>
 <script>

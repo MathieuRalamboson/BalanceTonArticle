@@ -97,7 +97,7 @@ const users = [{
 }]
 // ---------- Base de donnée --------------
 var data = [{
-  titre: 'superman',
+  titre: 'Superman',
   description: 'héro',
   due: 'Mathieu.R',
   date: '2nd Jan 2019',
@@ -105,7 +105,7 @@ var data = [{
   url: 'https://i.dlpng.com/static/png/318222_thumb.png'
 },
 {
-  titre: 'batman',
+  titre: 'Batman',
   description: 'héro',
   due: 'Mathieu.R',
   date: '2nd Jan 2019',
@@ -113,7 +113,7 @@ var data = [{
   url: 'https://upload.wikimedia.org/wikipedia/en/8/87/Batman_DC_Comics.png'
 },
 {
-  titre: 'wonderwoman',
+  titre: 'Wonderwoman',
   description: 'héro',
   due: 'Mathieu.R',
   date: '2nd Jan 2019',
@@ -121,7 +121,7 @@ var data = [{
   url: 'https://vignette.wikia.nocookie.net/wonderwoman/images/b/ba/Rebirth_Wonder_Woman_design.jpg/revision/latest?cb=20161107173806'
 },
 {
-  titre: 'robin',
+  titre: 'Robin',
   description: 'héro',
   due: 'Mathieu.R',
   date: '2nd Jan 2019',

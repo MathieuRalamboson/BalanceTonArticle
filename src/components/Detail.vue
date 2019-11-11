@@ -12,16 +12,11 @@
 
     <v-card>
         <v-card-title>
-            <h2>Detail de l'article</h2>
+            <h1>{{todoList.titre}}</h1>
         </v-card-title>
-        <h1> Titre : {{todoList.titre}} </h1>
-        <h1> Description : {{todoList.description}} </h1>
-        <h1> Status : {{todoList.status}} </h1>
+        <h2> Status : {{todoList.status}} </h2>
+        <h2> Description : {{todoList.description}} </h2>
         <img v-bind:src=todoList.url>
-        <v-row no-gutters>
-            <v-text-field>
-            </v-text-field>
-        </v-row>
     </v-card>
 
     </v-dialog>

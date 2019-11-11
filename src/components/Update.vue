@@ -19,7 +19,7 @@
         <v-col cols="9">
           <v-text-field v-model="todoList.titre" label="Title" ></v-text-field>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="9">
           <v-text-field v-model="todoList.description" label="Description"></v-text-field>
         </v-col>
         <v-col cols="12" sm="4">
@@ -36,14 +36,16 @@
         <v-col cols="9">
           <v-text-field v-model="todoList.url" label="URL" ></v-text-field>
         </v-col>
-        <img v-bind:src=todoList.url>
 
-        <v-col>
-          <v-btn 
-          class="sucess mx-0 mt-3"
+        <v-col cols="9">
+          <v-btn
+          depresed small color="black" 
+          class="success"
           v-on:click="modifArticle(idx)"
           v-on="false">Update</v-btn>
         </v-col>
+
+        <img v-bind:src=todoList.url>
       </v-row>
       <!-- Recuperation Input -->
     </v-card>

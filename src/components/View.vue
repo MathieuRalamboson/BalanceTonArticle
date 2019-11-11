@@ -15,11 +15,15 @@
           <v-layout row wrap :class="`pa-3 project ${todo.status}`">
             <v-flex xs12 md2>
               <div class="caption grey--text">Article</div>
-              <div>{{ todo.titre }}</div>
+              <div
+              v-if="todo.titre.length<15">{{ todo.titre }}</div>
+              <div v-else>{{ todo.titre.substring(0,15)+"..." }}</div>
             </v-flex>
             <v-flex xs12 md2>
               <div class="caption grey--text">Description</div>
-              <div>{{ todo.description }}</div>
+              <div
+              v-if="todo.description.length<10">{{ todo.description }}</div>
+              <div v-else>{{ todo.description.substring(0,10)+"..." }}</div>
             </v-flex>    
 
             <v-flex xs2 sm4 md2>

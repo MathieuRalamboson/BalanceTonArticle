@@ -3,12 +3,22 @@
     <v-layout text-center wrap>
       <v-form v-model="valid">
         <v-container>
-          <v-row>
+          <v-row justify="center">
             <v-col cols="12" md="4">
-              <v-text-field v-model="username" label="Username" required v-show="isActive"></v-text-field>
+              <v-text-field 
+              v-model="username" 
+              label="Username" 
+              outlined
+              required 
+              v-show="isActive"></v-text-field>
             </v-col>
             <v-col cols="12" md="4">
-              <v-text-field v-model="password" label="Password" required v-show="isActive"></v-text-field>
+              <v-text-field 
+              v-model="password" 
+              label="Password" 
+              outlined
+              required 
+              v-show="isActive"></v-text-field>
             </v-col>
 
             <v-col cols="12" md="4">
