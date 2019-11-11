@@ -1,7 +1,7 @@
 <template>
   <v-container class="grey lighten-5">
     <input v-on:change="refresh">
-    <v-layout>
+    <v-layout v-if = adminCheck()>
        <Popup >
         </Popup>
     </v-layout>
