@@ -22,23 +22,6 @@
 </template>
 
 <script>
-// this.axios
-      //   .post(this.url + "/api/login", {
-      //     username: this.username,
-      //     password: this.password,
-      //     userId: 1000
-      //   })
-      //   .then(rep => {
-      //     // Connection etablie
-      //     console.log("Login réussi !");
-      //     console.log("La réponse : " , rep)
-      //   })
-      //   .catch(err => {
-      //     // Erreur
-      //     console.log("Login échoué !");
-      //     console.log(err);
-      //     //console.log("La réponse : " , rep)
-      //   });
 import Router from "vue-router";
 import axios from "axios";
 import VueAxios from "vue-axios";
