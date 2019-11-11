@@ -62,6 +62,19 @@ app.post('/api/data', (req, res) => {
   console.log('Data2', data)
 })
 
+app.put('/api/data/detail', (req, res) => {
+  console.log('-------- Query ---------')
+  console.log('-------- Modif article ---------')
+  console.log('req.body', req.body)
+  console.log('req.query', req.query)
+  console.log('req.body.idx', req.body.idx)
+  console.log('Data1', data)
+  // Remplie data avec les nouvelle valeurs
+  // data = [...data, req.body]
+  data[req.body.idx] = req.body
+  console.log('Data2', data)
+})
+
 app.delete('/api/data', (req, res) => {
   console.log('-------- Query ---------')
   console.log('-------- Suppression POST ---------')
@@ -76,11 +89,11 @@ app.delete('/api/data', (req, res) => {
 const users = [{
   username: 'lol',
   password: 'lol',
-  active: false
+  statusAdmin: false
 }, {
   username: 'admin',
   password: 'admin',
-  active: false
+  statusAdmin: true
 }]
 // ---------- Base de donnée --------------
 var data = [{
@@ -132,9 +145,7 @@ app.post('/api/login', (req, res) => {
     } else {
       // connect the user
       req.session.userId = 1000 // connect the user, and change the id
-      res.json({
-        message: 'connected with id =' + req.session.userId
-      })
+      res.json({ admin: user.statusAdmin })
       console.log(' Utilisateur trouvé ! ')
     }
   } else {

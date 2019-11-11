@@ -43,17 +43,17 @@
               <Detail :idx="idx" >
               </Detail>
 
+              <Update :idx='idx' v-if = adminCheck() >
+              </Update>              
+
+              <!-- Supprimer article-->
               <v-btn 
+              v-if = adminCheck() 
               class="ma-1" outlined color="indigo"
               v-on:click="deleteTodo(idx)">
                <v-icon>mdi-delete</v-icon>
               </v-btn>
 
-              <v-btn 
-              class="ma-1" outlined color="indigo"
-              v-on:click="deleteTodo(idx)">
-               <v-icon>mdi-settings</v-icon>
-              </v-btn>
             </v-flex>
             <!-- Boutton sur les cotées -->
           </v-layout>
@@ -71,9 +71,11 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import Popup from './Popup'
 import Detail from './Detail'
+import Update from './Update'
 
 export default {
-  components: {Popup,Detail},
+  components: {Popup,Detail,Update},
+  props:['admin'],
   data: () => ({
     valid: false,
     seen: true,
@@ -91,6 +93,16 @@ export default {
         this.refresh();
     },
   methods: {
+    debug() {
+      console.log(this.$route.params.admin)
+    },
+    adminCheck() {
+      if(this.$route.params.admin) {
+        return true
+      }else{
+        return false
+      }
+    },
     refresh() {
       //console.log("Recuperation Database");
       axios.get(this.url + '/api/data')
