@@ -20,6 +20,7 @@ export default new Router({
     {
       path: '/page-1',
       name: 'Page View',
+      params: 'admin',
       component: View
     },
     {

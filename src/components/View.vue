@@ -50,7 +50,7 @@
               <v-btn 
               v-if = adminCheck() 
               class="ma-1" outlined color="indigo"
-              v-on:click="deleteTodo(idx)">
+              v-on:click="debug()">
                <v-icon>mdi-delete</v-icon>
               </v-btn>
 
