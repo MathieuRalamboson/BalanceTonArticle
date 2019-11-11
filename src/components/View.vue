@@ -2,7 +2,7 @@
   <v-container class="grey lighten-5">
     <input v-on:change="refresh">
     <v-layout>
-      <v-btn v-on:click="refresh">Refresh</v-btn>
+      <v-btn depressed small v-on:click="refresh">Refresh</v-btn>
        <Popup >
         </Popup>
     </v-layout>

@@ -1,7 +1,7 @@
 <template>
   <!-- Barre navigation -->
   <nav>
-    <v-app-bar flat app>
+    <v-app-bar color="grey darken-1" flat app>
       <!-- NavBAR -->
       <v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase grey--text">
@@ -10,7 +10,7 @@
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <v-btn text color="grey" v-on:click="logout">
+      <v-btn text color="white" v-on:click="logout">
         <span>Sign Out</span>
       </v-btn>
     </v-app-bar>
@@ -20,7 +20,7 @@
       <!-- Provides the application the proper gutter -->
       <v-container fluid></v-container>
     </v-content>
-    <!-- Content a ajouter si besoin -->
+	<!-- Content a ajouter si besoin -->
     <v-navigation-drawer app v-model="drawer" class="indigo">
       <v-list>
         <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
@@ -35,6 +35,7 @@
     </v-navigation-drawer>
   </nav>
   <!-- Barre navigation -->
+
 </template>
 
 <script>
