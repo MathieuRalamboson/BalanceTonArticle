@@ -98,33 +98,25 @@ const users = [{
 // ---------- Base de donnée --------------
 var data = [{
   titre: 'Superman',
-  description: 'héro',
-  due: 'Mathieu.R',
-  date: '2nd Jan 2019',
+  description: 'Superman est un super-héros de bande dessinée américaine appartenant au monde imaginaire de l’Univers DC. Ce personnage est considéré comme une icône culturelle américaine.Créé en janvier 1933 par le scénariste américain Jerry Siegel et le dessinateur canadien Joe Shuster alors quils habitaient tous deux à Cleveland, le personnage fut vendu à Detective Comics. Il apparaît pour la première fois dans un Action Comics en juin 1938. Le personnage est ensuite repris dans plusieurs pièces radiophoniques, émissions de télévision, films, comic strips et jeux vidéo. Au vu du succès et de la notoriété de ses aventures, Superman est essentiel dans la création d’un genre propre aux super-héros.L’apparence du personnage est particulièrement iconique : un costume composé d’un justaucorps rouge, bleu et jaune, de collants et de bottes moulantes, d’une ceinture, avec une cape et sur le torse, le dessin d’un ‘S’ rouge sur un écu jaune. Cet écu est maintenant très souvent utilisé pour symboliser le personnage. ',
   status: 'news',
   url: 'https://i.dlpng.com/static/png/318222_thumb.png'
 },
 {
   titre: 'Batman',
-  description: 'héro',
-  due: 'Mathieu.R',
-  date: '2nd Jan 2019',
+  description: 'Bruce Wayne, alias Batman, est un super-héros de fiction appartenant à lunivers de DC Comics. Créé par le dessinateur Bob Kane et le scénariste Bill Finger, il apparaît pour la première fois dans le comic book Detective Comics no 27 (date de couverture : mai 1939 mais la date réelle de parution est le 30 mars 1939) sous le nom de The Bat-Man. Bien que ce soit le succès de Superman qui ait amené sa création, il se détache de ce modèle puisquil na aucun pouvoir surhumain. Batman nest quun simple humain qui a décidé de lutter contre le crime après avoir vu ses parents se faire abattre par un voleur dans une ruelle de Gotham City, la ville où se déroulent la plupart de ses aventures. Malgré sa réputation de héros solitaire, il sait sentourer dalliés, comme Robin, son majordome Alfred Pennyworth ou encore le commissaire de police James Gordon. ',
   status: 'sante',
   url: 'https://upload.wikimedia.org/wikipedia/en/8/87/Batman_DC_Comics.png'
 },
 {
   titre: 'Wonderwoman',
-  description: 'héro',
-  due: 'Mathieu.R',
-  date: '2nd Jan 2019',
+  description: 'Wonder Woman est une super-héroïne de bande dessinée américaine créée par William Moulton Marston (sous le pseudonyme de Charles Moulton), qui apparaît pour la première fois en décembre 1941 dans All Star Comics #8. Elle est, à cette époque, lune des premières super-héroïnes et demeure la plus célèbre dentre elles. Dans la plupart des adaptations, Wonder Woman est la princesse Diana dune tribu dAmazones dont les origines sont liées à la mythologie grecque. Ambassadrice amazone dans notre monde, elle possède différents pouvoirs surnaturels ainsi que des cadeaux des dieux grecs, comme un lasso magique et des bracelets à lépreuve des balles. Elle fait aussi partie de la Ligue des justiciers dAmérique. ',
   status: 'doc',
   url: 'https://vignette.wikia.nocookie.net/wonderwoman/images/b/ba/Rebirth_Wonder_Woman_design.jpg/revision/latest?cb=20161107173806'
 },
 {
   titre: 'Robin',
-  description: 'héro',
-  due: 'Mathieu.R',
-  date: '2nd Jan 2019',
+  description: 'Robin est un personnage créé par Bob Kane, Bill Finger et Jerry Robinson en 1940. Le personnage est en partie imaginé par ses créateurs dans le but daccompagner Batman dans ses aventures, mais aussi afin de permettre aux jeunes lecteurs de sidentifier au héros."Robin" signifie "rouge-gorge" en anglais. Mais le pseudonyme attribué au justicier fait également référence à Robin des Bois.',
   status: 'news',
   url: 'https://www.universdescomics.com/wp-content/uploads/2018/05/Robin.png'
 }

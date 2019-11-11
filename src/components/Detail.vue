@@ -15,7 +15,8 @@
             <h1>{{todoList.titre}}</h1>
         </v-card-title>
         <h2> Status : {{todoList.status}} </h2>
-        <h2> Description : {{todoList.description}} </h2>
+        <h2> Description : </h2>
+        <h2> {{todoList.description}} </h2>
         <img v-bind:src=todoList.url>
     </v-card>
 

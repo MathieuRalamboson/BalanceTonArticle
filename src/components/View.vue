@@ -1,5 +1,9 @@
 <template>
   <v-container class="grey lighten-5">
+    <v-parallax
+    height="950"
+    src="https://faithsmessenger.com/wp-content/uploads/2014/12/superheroes.jpg"
+  ></v-parallax>
     <input v-on:change="refresh">
     <v-layout v-if = adminCheck()>
        <Popup >
@@ -10,20 +14,20 @@
     <div class="dashboard">
       <h1 class="subheading grey--text">Les Articles</h1>
 
-      <v-container class="my-5">
+      <v-container class="my-4">
         <v-card flat class="pa-3" v-for="(todo, idx) in todoList" v-bind:key="idx">
           <v-layout row wrap :class="`pa-3 project ${todo.status}`">
-            <v-flex xs12 md2>
+            <v-flex xs12 md3>
               <div class="caption grey--text">Article</div>
               <div
               v-if="todo.titre.length<15">{{ todo.titre }}</div>
               <div v-else>{{ todo.titre.substring(0,15)+"..." }}</div>
             </v-flex>
-            <v-flex xs12 md2>
+            <v-flex xs12 md3>
               <div class="caption grey--text">Description</div>
               <div
-              v-if="todo.description.length<10">{{ todo.description }}</div>
-              <div v-else>{{ todo.description.substring(0,10)+"..." }}</div>
+              v-if="todo.description.length<30">{{ todo.description }}</div>
+              <div v-else>{{ todo.description.substring(0,30)+"..." }}</div>
             </v-flex>    
 
             <v-flex xs2 sm4 md2>

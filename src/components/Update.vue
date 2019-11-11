@@ -17,11 +17,16 @@
         <!-- Recuperation Input -->
       <v-row no-gutters>
         <v-col cols="9">
-          <v-text-field v-model="todoList.titre" label="Title" ></v-text-field>
+          <v-text-field v-model="todoList.titre" label="Title" outlined ></v-text-field>
         </v-col>
         <v-col cols="9">
-          <v-text-field v-model="todoList.description" label="Description"></v-text-field>
+          <v-text-field v-model="todoList.description" label="Description" outlined></v-text-field>
         </v-col>
+        
+        <v-col cols="9">
+          <v-text-field v-model="todoList.url" label="URL" outlined ></v-text-field>
+        </v-col>
+
         <v-col cols="12" sm="4">
           <v-overflow-btn
             class="my-2"
@@ -31,10 +36,6 @@
             v-model="todoList.status"
             required
           ></v-overflow-btn>
-        </v-col>
-
-        <v-col cols="9">
-          <v-text-field v-model="todoList.url" label="URL" ></v-text-field>
         </v-col>
 
         <v-col cols="9">
