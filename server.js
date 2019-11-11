@@ -94,6 +94,11 @@ const users = [{
   username: 'admin',
   password: 'admin',
   statusAdmin: true
+},
+{
+  username: 'user',
+  password: 'user',
+  statusAdmin: false
 }]
 // ---------- Base de donnée --------------
 var data = [{
