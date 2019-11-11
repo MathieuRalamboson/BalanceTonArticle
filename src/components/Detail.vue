@@ -14,10 +14,10 @@
         <v-card-title>
             <h2>Detail de l'article</h2>
         </v-card-title>
-        <h1> Idx : {{idx}} </h1>
         <h1> Titre : {{todoList.titre}} </h1>
         <h1> Description : {{todoList.description}} </h1>
         <h1> Status : {{todoList.status}} </h1>
+        <img v-bind:src=todoList.url>
         <v-row no-gutters>
             <v-text-field>
             </v-text-field>

@@ -101,28 +101,32 @@ var data = [{
   description: 'héro',
   due: 'Mathieu.R',
   date: '2nd Jan 2019',
-  status: 'news'
+  status: 'news',
+  url: 'https://i.dlpng.com/static/png/318222_thumb.png'
 },
 {
   titre: 'batman',
   description: 'héro',
   due: 'Mathieu.R',
   date: '2nd Jan 2019',
-  status: 'sante'
+  status: 'sante',
+  url: 'https://upload.wikimedia.org/wikipedia/en/8/87/Batman_DC_Comics.png'
 },
 {
   titre: 'wonderwoman',
   description: 'héro',
   due: 'Mathieu.R',
   date: '2nd Jan 2019',
-  status: 'doc'
+  status: 'doc',
+  url: 'https://vignette.wikia.nocookie.net/wonderwoman/images/b/ba/Rebirth_Wonder_Woman_design.jpg/revision/latest?cb=20161107173806'
 },
 {
-  titre: 'cochon',
+  titre: 'robin',
   description: 'héro',
   due: 'Mathieu.R',
   date: '2nd Jan 2019',
-  status: 'news'
+  status: 'news',
+  url: 'https://www.universdescomics.com/wp-content/uploads/2018/05/Robin.png'
 }
 ]
 

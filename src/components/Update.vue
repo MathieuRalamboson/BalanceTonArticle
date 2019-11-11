@@ -32,6 +32,12 @@
             required
           ></v-overflow-btn>
         </v-col>
+
+        <v-col cols="9">
+          <v-text-field v-model="todoList.url" label="URL" ></v-text-field>
+        </v-col>
+        <img v-bind:src=todoList.url>
+
         <v-col>
           <v-btn 
           class="sucess mx-0 mt-3"
@@ -95,7 +101,8 @@ export default {
       idx: idx,
       titre: this.todoList.titre,
       description: this.todoList.description,
-      status: this.todoList.status
+      status: this.todoList.status,
+      url: this.todoList.url
       })
   }
 

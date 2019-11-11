@@ -2,7 +2,6 @@
   <v-container class="grey lighten-5">
     <input v-on:change="refresh">
     <v-layout>
-      <v-btn v-on:click="refresh">Refresh</v-btn>
        <Popup >
         </Popup>
     </v-layout>
@@ -21,16 +20,7 @@
             <v-flex xs12 md2>
               <div class="caption grey--text">Description</div>
               <div>{{ todo.description }}</div>
-            </v-flex>
-
-            <v-flex xs12 sm4 md2>
-              <div class="caption grey--text">Créé par :</div>
-              <div>{{ todo.due }}</div>
-            </v-flex>
-            <v-flex xs12 sm4 md2>
-              <div class="caption grey--text">Fait le :</div>
-              <div>{{ todo.date }}</div>
-            </v-flex>
+            </v-flex>    
 
             <v-flex xs2 sm4 md2>
               <div class="caption grey--text">Status</div>

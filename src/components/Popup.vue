@@ -1,12 +1,12 @@
 <template>
   <v-dialog max-width="600px" v-model="dialog">
     <template template v-slot:activator="{on}">
-      <v-btn text v-on="on" class="success">Add new project</v-btn>
+      <v-btn text v-on="on" class="success">Ajouter un article</v-btn>
     </template>
 
     <v-card>
       <v-card-title>
-        <h2>Add a New Article</h2>
+        <h2>Ajouter un article</h2>
       </v-card-title>
       <!-- Recuperation Input -->
       <v-row no-gutters>
@@ -27,11 +27,17 @@
             required
           ></v-overflow-btn>
         </v-col>
+
+        <v-col cols="9">
+          <v-text-field v-model="imgUrl" label="URL" ></v-text-field>
+        </v-col>
+        <img v-bind:src=imgUrl>
+
         <v-col>
           <v-btn 
           class="sucess mx-0 mt-3"
           v-on:click="addTodo"
-          v-on="false">Add</v-btn>
+          v-on="false">Ajouter</v-btn>
         </v-col>
       </v-row>
       <!-- Recuperation Input -->
@@ -59,7 +65,8 @@ export default {
     ],
     titre: "",
     description: "",
-    status: ""
+    status: "",
+    imgUrl: ""
   
   }
   ),
@@ -69,7 +76,8 @@ export default {
       axios.post(this.url + '/api/data', {
       titre: this.titre,
       description: this.description,
-      status: this.status
+      status: this.status,
+      url: this.imgUrl
     })
     .then(response => {})
       this.init_dialog(),
@@ -78,7 +86,8 @@ export default {
     init_dialog() { // Remise a 0
     this.titre = null,
     this.description = null,
-    this.status = null
+    this.status = null,
+    this.imgUrl = null
     }
   }
 };
